@@ -1,0 +1,5 @@
+﻿1- Necrolyte
+This app
+
+2- Lachee
+Source: https://github.com/Lachee/discord-rpc-csharp+
