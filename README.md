@@ -9,7 +9,7 @@ This application updates your Discord status according to your Jazz Jackrabbit 2
 
 Requirements:
 - Microsoft .NET Framework 3.5
-- Discord Desktop Application
+- Discord Desktop
 
 
 
