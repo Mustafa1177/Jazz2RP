@@ -42,6 +42,7 @@ Public Class FormOptions
         If My.Settings.PrivacyLevel >= TrackBarPrivacyLvl.Minimum AndAlso My.Settings.PrivacyLevel <= TrackBarPrivacyLvl.Maximum Then
             TrackBarPrivacyLvl.Value = My.Settings.PrivacyLevel
         End If
+        CheckBoxMaxPrivacy.Checked = My.Settings.FullPrivacyMode
 
         CheckBox2.Checked = My.Settings.Privacy_Details_Location
         CheckBox3.Checked = My.Settings.Privacy_Details_HostedServerName
@@ -155,6 +156,7 @@ Public Class FormOptions
     Private Sub CheckBoxMaxPrivacy_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxMaxPrivacy.CheckedChanged
         GroupBoxDetails.Enabled = Not CheckBoxMaxPrivacy.Checked
         GroupBoxStates.Enabled = Not CheckBoxMaxPrivacy.Checked
+        My.Settings.FullPrivacyMode = CheckBoxMaxPrivacy.Checked
     End Sub
 
     Private Sub ComboBoxCpu_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxCpu.SelectedIndexChanged
@@ -198,7 +200,7 @@ Public Class FormOptions
     End Sub
 
     Private Sub CheckBox11_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox11.CheckedChanged
-        My.Settings.Privacy_State_InOnlineGame = CType(sender, CheckBox).Checked
+        My.Settings.Privacy_State_Spectating = CType(sender, CheckBox).Checked
     End Sub
 
     Private Sub CheckBox12_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox12.CheckedChanged

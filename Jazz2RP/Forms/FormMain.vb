@@ -39,7 +39,6 @@ Public Class FormMain
                 My.Settings.App_Upgraded = True
                 My.Settings.Save()
             End If
-
         End If
 
         If client IsNot Nothing AndAlso client.CurrentUser IsNot Nothing Then
@@ -52,6 +51,7 @@ Public Class FormMain
         ButtonHide.Select()
         TimerStartup.Start()
     End Sub
+
     Private Sub Startup_Tick(sender As Object, e As EventArgs) Handles TimerStartup.Tick
         TimerStartup.Stop()
         If My.Settings.ExitHandling() = ExitHandingWay.HIDE OrElse My.Settings.ExitHandling() = ExitHandingWay.MINIMIZE_TO_TRAY Then
@@ -73,6 +73,7 @@ Public Class FormMain
         Next
         TimerStartup.Dispose()
     End Sub
+
     Private Sub FormMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Select Case e.CloseReason
             Case CloseReason.WindowsShutDown, CloseReason.TaskManagerClosing
@@ -129,20 +130,25 @@ Public Class FormMain
             End If
         End If
     End Sub
+
     Private Sub FormMain_Activated(sender As Object, e As EventArgs) Handles Me.Activated
         windowIsActive = True
+        UpdateForm()
     End Sub
+
     Private Sub StartupNextInstance_Event()
         Me.Show()
         Me.BringToFront()
         Me.Select()
     End Sub
+
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles ButtonExit.Click
         On Error Resume Next
         CloseRP()
         My.Settings.Save()
         End
     End Sub
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles ButtonOptions.Click
         optionsForm = New FormOptions
         optionsForm.parent = Me
@@ -181,11 +187,13 @@ TheBegining:
             End If
         End Try
     End Sub
+
     Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
         Me.Show()
         Me.BringToFront()
         Me.Select()
     End Sub
+
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         On Error Resume Next
         RPUpdateTimer.Stop()
@@ -193,14 +201,17 @@ TheBegining:
         My.Settings.Save()
         End
     End Sub
+
     Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
         Me.Show()
         Me.BringToFront()
         Me.Select()
     End Sub
+
     Private Sub RPUpdateTimer_Tick(sender As Object, e As EventArgs) Handles RPUpdateTimer.Tick
         DoTheMainPurpose()
     End Sub
+
     Private Sub ButtonMakePriv_Click(sender As Object, e As EventArgs) Handles ButtonMakePriv.Click
         Dim res = makeCurrentServerPrivate()
         If res = "" Then
@@ -209,6 +220,7 @@ TheBegining:
             MsgBox(String.Format("Error: {0}.", res))
         End If
     End Sub
+
     Private Sub MakeServerPrivateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MakeServerPrivateToolStripMenuItem.Click
         Dim res = makeCurrentServerPrivate()
         If res = "" Then
@@ -217,6 +229,7 @@ TheBegining:
             MsgBox(String.Format("Error: {0}.", res))
         End If
     End Sub
+
     Function makeCurrentServerPrivate() As String
         Try
             If jazz2Process IsNot Nothing AndAlso jazz2Process.HasExited = False Then
@@ -246,6 +259,7 @@ TheBegining:
         End Try
         Return ""
     End Function
+
     Sub UpdateForm()
         If windowIsActive Then
             If (client IsNot Nothing) AndAlso (client.IsDisposed = False) Then
@@ -263,6 +277,7 @@ TheBegining:
             If jj2 IsNot Nothing AndAlso gameVersion <> 0 Then LabelGameVersion.Text = "1." & gameVersion Else LabelGameVersion.Text = "-"
         End If
     End Sub
+
     Sub ApplySettings()
         Select Case My.Settings.CpuUsage
             Case 0 'Lowest
@@ -283,6 +298,7 @@ TheBegining:
         End If
 
     End Sub
+
     Sub LoadData()
         Dim res As String()
 
@@ -312,8 +328,8 @@ TheBegining:
         If res.Length > 0 Then
             jazz2PrivateServers = res
         End If
-
     End Sub
+
     Sub SaveData()
         Storage.SaveStringArray(IO.Path.Combine(Application.LocalUserAppDataPath, "jazz2processes.txt"), jazz2ProcessNames)
         Storage.SaveStringArray(IO.Path.Combine(Application.LocalUserAppDataPath, "playernames.txt"), jazz2PublicNames)
@@ -389,7 +405,7 @@ CloseProcess:
                     Dim isNamePublic As Boolean = True
                     If jj2.General_Data.PartyMode <> False Then
                         If jj2.Game_Data.GameConnection = JJ2Reader.JJ2_Game_Data.GAME_CONNECTION.NONE Then
-                            If My.Settings.Privacy_State_InGame Then rpState = "In Game" Else rpState = ""
+                            If My.Settings.Privacy_State_InGame Then rpState = "In-Game" Else rpState = ""
                             If My.Settings.Privacy_Details_SplitScreen Then rpDetails = "Local Splitscreen" Else rpDetails = ""
                         Else
                             If jazz2PublicNames.Length > 0 Then
@@ -404,7 +420,7 @@ CloseProcess:
                             End If
                             If isNamePublic Then
                                 If jj2.Game_Data.ClientID = 0 Then 'Hosting Server
-                                    If My.Settings.Privacy_State_InOnlineGame Then rpState = "In Game"
+                                    If My.Settings.Privacy_State_InOnlineGame Then rpState = "In-Game"
                                     If My.Settings.Privacy_Details_HostedServerName Then rpDetails = String.Format("Hosting: {0}", jj2.Server_Data.ServerName) Else rpDetails = ""
                                 Else 'Client
                                     If jj2._plusDllAddress <> 0 Then 'If JJ2+ 
@@ -473,7 +489,7 @@ CloseProcess:
                         End If
                         RpUpdateTimeStamps()
                     Else
-                        If My.Settings.Privacy_State_InGame Then rpState = "In Game" Else rpState = ""
+                        If My.Settings.Privacy_State_InGame Then rpState = "In-Game" Else rpState = ""
                         If My.Settings.Privacy_Details_SinglePlayer Then rpDetails = My.Settings.String_SinglePlayer Else rpDetails = ""
                     End If
                     If My.Settings.Privacy_Details_LevelName AndAlso isNamePublic Then
@@ -521,6 +537,7 @@ CloseProcess:
             CloseRP()
         End If
     End Sub
+
     Sub RpUpdateTimeStamps()
         Exit Sub
         If jj2._plusDllAddress <> 0 Then
@@ -529,7 +546,6 @@ CloseProcess:
               {
                   .Start = DateTime.UtcNow, .End = DateTime.UtcNow + TimeSpan.FromMilliseconds(jj2.Game_Data_Plus.TimeRemaining)
               }
-
             Else
                 If rp.HasTimestamps Then
                     RpRemoveTimeStamps()
@@ -541,9 +557,11 @@ CloseProcess:
             End If
         End If
     End Sub
+
     Sub RpRemoveTimeStamps()
 
     End Sub
+
     Sub Log(txt As String)
         Try
             IO.File.AppendAllText(IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "programlog.txt"), txt & vbNewLine)
@@ -623,6 +641,8 @@ CloseProcess:
             ReDim rp.Buttons(0)
             rp.Buttons(0) = rpExtraButton
         End If
+
+        'old learning code
         If False Then
             rp.Details = "At: Gem Collecting Challenge"
             rp.State = "Playing Treasure Hunt Online"

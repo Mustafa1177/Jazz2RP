@@ -375,9 +375,9 @@ Partial Class FormOptions
         Me.FlowLayoutPanel10.Controls.Add(Me.ListBoxPrivServers)
         Me.FlowLayoutPanel10.Controls.Add(Me.FlowLayoutPanel11)
         Me.FlowLayoutPanel10.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel10.Location = New System.Drawing.Point(278, 315)
+        Me.FlowLayoutPanel10.Location = New System.Drawing.Point(278, 327)
         Me.FlowLayoutPanel10.Name = "FlowLayoutPanel10"
-        Me.FlowLayoutPanel10.Size = New System.Drawing.Size(255, 127)
+        Me.FlowLayoutPanel10.Size = New System.Drawing.Size(255, 116)
         Me.FlowLayoutPanel10.TabIndex = 13
         '
         'Label11
@@ -442,7 +442,7 @@ Partial Class FormOptions
         Me.Label9.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.Label9.Size = New System.Drawing.Size(542, 33)
         Me.Label9.TabIndex = 10
-        Me.Label9.Text = "Checked options will be visible to others on your Discord Rich Presence"
+        Me.Label9.Text = "Checked options will be visible to others on your Discord status."
         '
         'CheckBoxMaxPrivacy
         '
@@ -463,7 +463,7 @@ Partial Class FormOptions
         Me.GroupBoxStates.Controls.Add(Me.FlowLayoutPanel3)
         Me.GroupBoxStates.Location = New System.Drawing.Point(275, 93)
         Me.GroupBoxStates.Name = "GroupBoxStates"
-        Me.GroupBoxStates.Size = New System.Drawing.Size(258, 216)
+        Me.GroupBoxStates.Size = New System.Drawing.Size(258, 228)
         Me.GroupBoxStates.TabIndex = 2
         Me.GroupBoxStates.TabStop = False
         Me.GroupBoxStates.Text = "Public States"
@@ -479,7 +479,7 @@ Partial Class FormOptions
         Me.FlowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(3, 18)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(252, 195)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(252, 207)
         Me.FlowLayoutPanel3.TabIndex = 0
         '
         'CheckBox14
@@ -545,9 +545,9 @@ Partial Class FormOptions
         Me.FlowLayoutPanel7.Controls.Add(Me.ListBoxPlayerNames)
         Me.FlowLayoutPanel7.Controls.Add(Me.FlowLayoutPanel8)
         Me.FlowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel7.Location = New System.Drawing.Point(17, 314)
+        Me.FlowLayoutPanel7.Location = New System.Drawing.Point(19, 328)
         Me.FlowLayoutPanel7.Name = "FlowLayoutPanel7"
-        Me.FlowLayoutPanel7.Size = New System.Drawing.Size(255, 127)
+        Me.FlowLayoutPanel7.Size = New System.Drawing.Size(255, 115)
         Me.FlowLayoutPanel7.TabIndex = 12
         '
         'Label10
@@ -661,7 +661,7 @@ Partial Class FormOptions
         Me.GroupBoxDetails.Controls.Add(Me.FlowLayoutPanel2)
         Me.GroupBoxDetails.Location = New System.Drawing.Point(14, 93)
         Me.GroupBoxDetails.Name = "GroupBoxDetails"
-        Me.GroupBoxDetails.Size = New System.Drawing.Size(258, 217)
+        Me.GroupBoxDetails.Size = New System.Drawing.Size(258, 229)
         Me.GroupBoxDetails.TabIndex = 1
         Me.GroupBoxDetails.TabStop = False
         Me.GroupBoxDetails.Text = "Public Details"
@@ -678,7 +678,7 @@ Partial Class FormOptions
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 18)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(252, 196)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(252, 208)
         Me.FlowLayoutPanel2.TabIndex = 0
         '
         'CheckBox2
@@ -753,7 +753,7 @@ Partial Class FormOptions
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(548, 473)
+        Me.TabPage3.Size = New System.Drawing.Size(548, 481)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Strings"
         Me.TabPage3.ToolTipText = "Change some strings shown on Discord Rich Presence"
@@ -771,7 +771,7 @@ Partial Class FormOptions
         Me.FlowLayoutPanel6.Location = New System.Drawing.Point(3, 3)
         Me.FlowLayoutPanel6.Name = "FlowLayoutPanel6"
         Me.FlowLayoutPanel6.Padding = New System.Windows.Forms.Padding(0, 10, 0, 10)
-        Me.FlowLayoutPanel6.Size = New System.Drawing.Size(542, 467)
+        Me.FlowLayoutPanel6.Size = New System.Drawing.Size(542, 475)
         Me.FlowLayoutPanel6.TabIndex = 0
         '
         'Label5
