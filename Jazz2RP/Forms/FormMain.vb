@@ -69,6 +69,8 @@ Public Class FormMain
                 Case "-extrabutton"
                     My.Settings.ExtraRPButtonCaption = "Matchmaking"
                     rpExtraButton.Label = "Matchmaking"
+                Case "-disableinvite"
+                    rpExtraButton.Url = "https://discord.com/"
             End Select
         Next
         TimerStartup.Dispose()
